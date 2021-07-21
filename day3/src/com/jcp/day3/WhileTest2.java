@@ -34,7 +34,7 @@ public class WhileTest2 {
 		System.out.println("프로그램을 종료합니다.");
 		
 		
-		
+//추가적인 연습은 StringTest2.java 코드를 적용해서  아스키코드값의 분류를 출력해보기.
 	}
 
 }

@@ -22,6 +22,7 @@ public class ForTest1 {
 			System.out.println("Good! Java!!!");
 		}	
 		
+		
 		//i=1부터 입력한 n까지 합계를 구합시다. --> ForTest2.java
 		
 	}

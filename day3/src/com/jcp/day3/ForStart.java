@@ -26,7 +26,8 @@ public class ForStart {
 		for (i=0;i<point;i++) {
 			System.out.print("★");
 		}
-		for (;i< 5; i++) {
+		//위의 for문 종료하면 i값은 point
+		for (;i< 5; i++) {    //초기식 생략. 위의 for문 종료한  i값을 계속 사용한 코드 
 			System.out.print("☆");
 		}
 	

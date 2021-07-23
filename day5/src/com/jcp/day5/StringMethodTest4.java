@@ -17,7 +17,9 @@ public class StringMethodTest4 {
 			index = temp.indexOf("kor");   //찾는 문자열 "kor"
 			System.out.println("index 확인 : " + index);
 			if(index == -1) break;
-			temp = temp.substring(index+3);   
+			cnt++;
+			temp = temp.substring(index+3);  
+			
 			//"kor"의 길이가 3이므로 "kor"뒤의 문자열을 추출한다. 
 		
 		}

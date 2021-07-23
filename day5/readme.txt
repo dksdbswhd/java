@@ -7,3 +7,5 @@ StringMethodTest.java
 StringMethodTest2.java
 StringMethodTest3.java
 StringMethodTest4.java
+StringExam.java
+UserIdCheck.java

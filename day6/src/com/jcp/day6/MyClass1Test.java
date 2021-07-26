@@ -33,10 +33,51 @@ public class MyClass1Test {
 		System.out.println("my 객체의 필드값 확인-----");
 		System.out.println(my2.field1);
 		System.out.println(my2.field2);
+		System.out.println(my2.field3);    //출력? null
 		System.out.println(my2.field3[2]);  
 		//31번의 배열 객체 선언이 없으면 2번 요소 접근할 수 없으므로 오류 발생합니다.
+		//배열의 객체를 생성하지 않으면 2번 인덱스 접근 할 떄 오류.널객체로는 인덱스 2접근 못함.
 		
+		System.out.println(my2.field1.length());   //출력? 10
+//		System.out.println(my1.field1.length());  
+		//my1이 널객체이므로 메소드 실행못함. 오류
+		
+		//NullPointerException : 널객체를 대상으로 데이터 접근,메소드 실행할 때 오류(Exception)
+		
+		//final 상수 테스트
+		//System.out.println(my1.field4);
+		//my2.field4=9999;  //final 필드는 값을 변경 못합니다.오류
+		//System.out.println(my2.field4);
+		
+		System.out.println(MyClass1.FIELD4);  
+		System.out.println(my1.FIELD4);  
+		//공유영역에 저장된 필드. 클래스 이름으로 읽어옵니다.(static접근)
+		
+		MyClass1.field5=1111;  //static 접근(클래스이름으로 사용)
+		System.out.println(MyClass1.field5);
+		my2.field5=9999;
+		System.out.println(my2.field5);
+		
+		//이전의 staic final 예시입니다.
+		System.out.println(Byte.MAX_VALUE);
+		System.out.println(Integer.MAX_VALUE);
+		System.out.println(Byte.BYTES);
 		sc.close();
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

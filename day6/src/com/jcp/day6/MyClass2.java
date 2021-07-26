@@ -1,6 +1,5 @@
 package com.jcp.day6;
 
-import java.lang.reflect.Method;
 
 //클래스의 구성요소인 메소드에 대해서 정리합니다.
 public class MyClass2 {

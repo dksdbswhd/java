@@ -1,5 +1,8 @@
 package com.jcp.day7;
 
+import java.util.Arrays;
+
+//어제 수업의 클래스의 필드&메소드 다시 연습합니다.
 public class MyClass3 {
 	
 	//필드 선언
@@ -23,4 +26,10 @@ public class MyClass3 {
 		this.point = point;
 	}
 	
+	//
+	void print() {
+		System.out.println("name : " + name + 
+				",level : " + level + ",points : " 
+				+ Arrays.toString(point));
+	}
 }

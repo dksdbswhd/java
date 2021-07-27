@@ -9,7 +9,6 @@ public class Student {
 	String name;   //학생 이름
 	int[] scores;   //배열의 크기는 동적입니다.
 	
-	//기본생성자
 	public Student() {
 		// TODO Auto-generated constructor stub
 	}
@@ -19,6 +18,7 @@ public class Student {
 		this.name=name;
 		this.scores=scores;
 	}
+	
 	
 	int sum() {
 		int result=0;
@@ -30,8 +30,11 @@ public class Student {
 	
 	void print() {
 		System.out.println("name : " + name + ",scores :" +
-					Arrays.toString(scores));
-		//수정할 예정  : 점수(학점) 표시
+					Arrays.toString(scores) + ", 총점 : " 
+					+ sum() + ",평균 : " 
+					+ (double)sum()/scores.length);
+		//수정할 예정  : 점수(학점) 표시 - for반복
+		
 	}
 	
 	char grade(int score) {

@@ -1,4 +1,7 @@
-package com.jcp.day8;
+package test;
+
+import com.jcp.day8.Shape;
+import com.jcp.day8.Triangle;
 
 public class ShapeTest {
 

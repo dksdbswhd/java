@@ -9,17 +9,13 @@ package com.jcp.day8;
 //     기본 생성자를 사용할 수 있습니다.
 public class Shape {    //도형 클래스 - 프로그램 구현에 사용한 하나의 부품
 
+		static final int MAX_WIDTH=100;    //상수
+		
 		//필드 private 접근
 		private String shapeName;		//도형 이름
 		private int width;				//도형의 크기 중 너비
 		private int height;				//도형의 크기 중 높이
 	
-//	protected 는 default 와 
-//	다른패키지 이면 자식 클래스만 접근할 수 있도록 제한.
-//		protected String shapeName;
-//		protected int width;
-//		protected int height;
-				
 		//1) 필드값 3개 초기화하는 생성자 만들어보세요.
 		public Shape(String shapeName, int width,int height) {
 				this.shapeName=shapeName;
@@ -49,6 +45,11 @@ public class Shape {    //도형 클래스 - 프로그램 구현에 사용한 �
 	
 		
 }
+//protected 는 default 와 
+//다른패키지 이면 자식 클래스만 접근할 수 있도록 제한.
+//	protected String shapeName;
+//	protected int width;
+//	protected int height;
 
 
 

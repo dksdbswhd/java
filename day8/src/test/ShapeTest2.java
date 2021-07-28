@@ -1,9 +1,12 @@
-package com.jcp.day8;
+package test;
 
-import test.Rectangle;
+import com.jcp.day8.Shape;
+import com.jcp.day8.Triangle;
 
-public class ShapeTest {
+public class ShapeTest2 {
 
+	
+//이 클래스는 다른 test 패키지 입니다.
 	public static void main(String[] args) {
 
 		
@@ -31,17 +34,9 @@ public class ShapeTest {
 		Rectangle re = new Rectangle("직사각형", 22, 15);
 		System.out.println(re.getShapeName() + " - 너비:" + re.getWidth() +",높이:" 
 				+re.getHeight() + ",면적:" + re.getArea());
-		
-		
+				
 		
 		
 	}
 
 }
-
-
-
-
-
-
-

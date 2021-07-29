@@ -10,6 +10,10 @@ public class Puppy extends Animal {
 		super(color);
 		//this.setColor(color);
 	}
+	
+	public String getType() {
+		return "강아지";
+	}
 
 	@Override
 	public void sound() {

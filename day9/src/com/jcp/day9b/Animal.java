@@ -1,6 +1,8 @@
 package com.jcp.day9b;
 
 public abstract class Animal {
+	static final String TYPE ="동물";
+	
 	//필드: 공통적인 특성
 	private String color;
 	private String name;    //동물 이름 예)마루
@@ -18,6 +20,8 @@ public abstract class Animal {
 	//추상메소드: 공통적인 기능
 	public abstract void sound();
 	
+	public abstract String getType();
+
 	
 	//일반 인스턴스 메소드
 	//필드가 private 이면 읽고 쓰기 -> getter, setter

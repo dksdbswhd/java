@@ -27,7 +27,8 @@ public class AnimalCommunity {
 		
 		boolean result =momo.isAdopt(animals[1]);
 		String message=momo.getName() + " 회원님은 ";	
-		
+	
+//강아지,고양이,토끼 출력방법은 여러가지 가능합니다.		
 		if(animals[1] instanceof Puppy)	
 			message +="강아지";
 		else if(animals[1] instanceof Cat)	
@@ -35,15 +36,29 @@ public class AnimalCommunity {
 		else if(animals[1] instanceof Rabbit)	
 			message +="토끼";
 		
-		if(result) {
-			System.out.print(message + " 분양 가능합니다.");
-			System.out.println("😃");
-		} else {
-			System.out.print(message + " 분양 자격이 안됩니다.");
-			System.out.println("😓");
-		}
+		print(result,message);
+		
+		//다른 멤버 추가해서 다른 animal 도 테스트. -> TYPE 상수 활용.
+		Member sana = new Member("사나",16);
+		
+		message=momo.getName() + " 회원님은 " + animals[0].getType();	
+		print(result,message);
+		
+		
+		
 		
 		}//main end
+	
+	
+		static void print(boolean result , String message) {
+			if(result) {
+				System.out.print(message + " 분양 가능합니다.");
+				System.out.println("😃");
+			} else {
+				System.out.print(message + " 분양 자격이 안됩니다.");
+				System.out.println("😓");
+			}
+		}
 
 }
 

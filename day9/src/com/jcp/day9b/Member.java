@@ -20,6 +20,8 @@ public class Member {
 			return true;
 		else if(animal instanceof Rabbit && age >=13)
 			return true;
+		else if(animal instanceof Animal && age >=20)
+			return true;
 		else 
 			return false;
 	}

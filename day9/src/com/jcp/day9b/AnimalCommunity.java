@@ -29,6 +29,7 @@ public class AnimalCommunity {
 		String message=momo.getName() + " 회원님은 ";	
 	
 //강아지,고양이,토끼 출력방법은 여러가지 가능합니다.		
+		//방법 1)
 		if(animals[1] instanceof Puppy)	
 			message +="강아지";
 		else if(animals[1] instanceof Cat)	
@@ -40,10 +41,29 @@ public class AnimalCommunity {
 		
 		//다른 멤버 추가해서 다른 animal 도 테스트. -> TYPE 상수 활용.
 		Member sana = new Member("사나",16);
+		//방법 2)
+		result = sana.isAdopt(animals[0]);
+//		message=sana.getName() + " 회원님은 " + animals[0].TYPE;	  
+//animals배열타입 Animal -"동물". 상수에 대해서는 오버라이딩 적용되지 않습니다.  
+//		==> 그래서 방법 3) 또는 아래의 getType() 메소드 사용.	
 		
-		message=momo.getName() + " 회원님은 " + animals[0].getType();	
+		message=sana.getName() + " 회원님은 " + animals[0].getType();	
 		print(result,message);
 		
+		Member mina = new Member("미나",20);
+		result = mina.isAdopt(animals[0]);
+		message = mina.getName() + " 회원님은 ";
+		//방법 3)
+		if(animals[0] instanceof Puppy)	 {
+			message +=Puppy.TYPE;
+		}else if(animals[0] instanceof Cat)	{
+			message +=Cat.TYPE;
+		}else if(animals[0] instanceof Rabbit) {	
+			message +=Rabbit.TYPE;
+		}	
+		print(result,message);
+
+//결론 : 여러가지 방법 중에 다른 메소드(기능)와의 동작 그리고 재사용성을 고려해서 적합한 것으로 선택.!!
 		
 		
 		

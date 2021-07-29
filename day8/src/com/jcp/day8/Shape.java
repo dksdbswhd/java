@@ -43,6 +43,10 @@ public class Shape {    //도형 클래스 - 프로그램 구현에 사용한 �
 			return width*height;
 		}
 	
+		//재정의 할수 없는 메소드입니다.
+		public final void print() {
+			System.out.println("final 메소드 테스트");
+		}
 		
 }
 //protected 는 default 와 

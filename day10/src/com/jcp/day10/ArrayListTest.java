@@ -17,6 +17,8 @@ public class ArrayListTest {
 // --> ArrayList 도 배열처럼 타입을 반영해야 합니다. : 제너릭 타입 으로 구현  - <> 안에 타입 표시 
 //3) 배열의 모든 값을 for 없이 출력 : Arrays.toString
 // --> ArrayList타입 참조 변수로 출력		
+//4) 배열의 정렬 (값 순서대로 나열)	: Arrays.sort 메소드
+// --> ArrayList 객체로 sort 메소드 . 예) datas.sort(null);	//오름차순	
 		
 		//ArrayList의 사용
 		ArrayList<Member> members = new ArrayList<>();
@@ -47,7 +49,7 @@ public class ArrayListTest {
 		System.out.println(members);
 		
 		//특정 인덱스 위치에 데이터 추가
-		members.add(1, new Member("정연",28));
+		members.add(1, new Member("정연",28));   //현재 리스트 중 중간 위치에 추가하고 싶을 때 입니다.
 		System.out.println(members);
 		
 	}

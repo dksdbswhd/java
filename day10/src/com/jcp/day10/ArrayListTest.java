@@ -52,6 +52,18 @@ public class ArrayListTest {
 		members.add(1, new Member("정연",28));   //현재 리스트 중 중간 위치에 추가하고 싶을 때 입니다.
 		System.out.println(members);
 		
+		//5) ArrayList 장점 : 같은 값있는지 검사하는 contains 메소드  
+		System.out.println(idatas.contains(124));
+		System.out.println(idatas.contains(123));
+		
+		
 	}
 
 }
+
+
+
+
+
+
+

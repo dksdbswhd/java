@@ -15,9 +15,10 @@ public class SmartTVTest {
 		
 		System.out.println("메소드 인자에 직접 객체 전달하기");
 		//SmartTv 클래스가 2개 인터페이스 구현 클래스이므로 가능합니다.
-		workVolume(new SmartTV());    
-		workSearch(new SmartTV());
 		
+		workVolume(new SmartTV());  
+		workSearch(new SmartTV());
+		 
 		SmartTV tv = new SmartTV();
 		workVolume(tv);
 		workSearch(tv);
@@ -34,6 +35,18 @@ public class SmartTVTest {
 	public static void workSearch(WebSearch ws) {	//다형성
 		ws.search("https://www.naver.com");
 	}
+/*
+ * SmartTV 클래스는 RemoteControl, WebSearch, SmartTV 타입으로 참조할수 있고
+ * Audio 클래스는 RemoteControl,Audio 타입으로 참조하여 이 중 선택하여
+ * 메소드 인자, 리턴타입, 변수 타입 설정에 사용합니다.	
+ */
+	
 	
 	
 }
+
+
+
+
+
+

@@ -9,7 +9,7 @@ public interface InterfaceA {
 	
 //메소드는  *1)추상메소드(public abstract 생략함.) 선언
 //     ,2)인스턴스(default)메소드와 3)static메소드는 정의하며  
-//	3가지 모두 가능합니다.
+//	3가지 모두 가능합니다.--> 모두 public
 	
 	//1)추상 메소드
 	void methodA();

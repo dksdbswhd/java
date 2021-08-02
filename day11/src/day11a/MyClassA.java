@@ -18,4 +18,10 @@ public class MyClassA implements InterfaceA {
 			return num;
 	}
 	
+	
+	//InterfaceA 의 static 메소드를 별도로 정의할 수 있습니다.
+	//이름이 같아도 override 로 처리하지 않습니다.
+	public static void medthodD() {
+		
+	}
 }

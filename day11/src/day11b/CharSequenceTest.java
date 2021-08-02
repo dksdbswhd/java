@@ -1,5 +1,8 @@
 package day11b;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Vector;
 
 //자바 API 클래스의 인터페이스 활용 테스트입니다.
 //CharSequence 인터페이스
@@ -33,6 +36,13 @@ public class CharSequenceTest {
 		System.out.println(temp.contains(result));   //인자가 String 타입
 		System.out.println(temp.contains(sb));		//인자가 StringBuilder 타입
 												//      ㄴ contains메소드 인자는 CharSequence 인터페이스 타입
+		List<String> list = new ArrayList<String>();  
+		//**ArrayList 참조변수 선언형식. 일반적으로 인터페이스 타입으로 합니다.
+		
+		List<String> vector = new Vector<String>();   //운반하는, ArrayList와 동일한 동작 and 멀티스레드 구현
+		
+		list.add("abc");
+		vector.add("xyz");
 		
 	}
 

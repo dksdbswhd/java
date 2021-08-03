@@ -10,12 +10,14 @@ public class SmartTVTest {
 		workVolume(rc);		//인터페이스 타입 인자로 메소드 실행합니다.
 		
 //		workSearch(rc);     //오류 : 인자의 타입이 불일치 합니다.
-		WebSearch ws = (WebSearch)rc;   //인터페이스 타입 변경
+		WebSearch ws = (WebSearch)rc;   //인터페이스 타입 변경(명시적(강제) 캐스팅) 
 		workSearch(ws);
 		
 		System.out.println("메소드 인자에 직접 객체 전달하기");
 		//SmartTv 클래스가 2개 인터페이스 구현 클래스이므로 가능합니다.
 		
+		SmartTV stv = (SmartTV) rc;   //인터페이스 타입 변경(명시적(강제) 캐스팅) 
+								//	    ㄴ 구현클래스에서 정의한 필드와 메소드와 사용하기 위해서입니다.
 		workVolume(new SmartTV());  
 		workSearch(new SmartTV());
 		 
@@ -30,6 +32,8 @@ public class SmartTVTest {
 	public static void workVolume(RemoteControl rc) {   //다형성
 		rc.setVolume(12);
 	}
+	
+	
 	
 	//검색을 동작하는 메소드 인자 WebSearch 타입
 	public static void workSearch(WebSearch ws) {	//다형성

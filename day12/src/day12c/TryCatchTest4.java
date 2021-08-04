@@ -19,7 +19,7 @@ public class TryCatchTest4 {
 			sel = sc.nextInt();		//배열의 인덱스
 			System.out.println("당신이 선택한 메뉴는 " + menu[sel-1] +"입니다.");
 			
-		//여기서 발생할 수 있는 Exception 2가지를 try ~ catch를 사용하여 수정해보세요.
+		//catch(XXXX e) 는 try 안에서 발생한 XXXXException 객체 e를 검사
 		}catch (ArrayIndexOutOfBoundsException e) {
 			System.out.println("없는 메뉴 번호 입니다.");
 		}catch (InputMismatchException e) {
@@ -30,3 +30,7 @@ public class TryCatchTest4 {
 		
 	}
 }
+
+
+
+

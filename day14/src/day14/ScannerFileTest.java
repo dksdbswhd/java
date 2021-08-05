@@ -21,6 +21,8 @@ public class ScannerFileTest {
 			//hasNext() - Iterator 반복자 인터페이스 추상메소드. 토큰은 데이터 단위.반복자는 다음 토큰을 접근하는 메소드
 			while(fsc.hasNext()) {	//읽어올 다음 데이터가 있는지 검사 - 위에 2개 라인 읽고 데이터가 더 있으면 출력합니다.
 				System.out.println(fsc.nextLine());
+				
+				
 			}
 			
 			fsc.close();

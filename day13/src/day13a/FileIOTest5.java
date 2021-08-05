@@ -1,8 +1,10 @@
 package day13a;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Scanner;
 
 //표준입출력 반복문으로 테스트합니다.
 //파일시스템(바탕화면 이미지파일) -> 프로그램 -> 파일시스템 출력(다운로드경로에 복사)
@@ -38,7 +40,15 @@ public class FileIOTest5 {
 			System.out.println("바탕화면에 hoya.jpg 파일을 다운로드 경로로 [[1024바이트 buf 크기단위로]]복사합니다.......");
 			count=0;
 			fis = new FileInputStream("C:\\Users\\admin\\Desktop\\hoya.jpg");    //다시 객체 생성하기
-			fos = new FileOutputStream("C:\\Users\\admin\\Downloads\\hoya3.jpg");
+			String filename;
+			//filename 변수 사용자 입력
+			Scanner sc = new Scanner(System.in);
+			System.out.print("경로명 입력 >>> ");
+			filename = sc.nextLine();
+			System.out.print("파일명 입력 >>> ");
+			filename = filename + "\\" + sc.nextLine();
+			fos = new FileOutputStream(filename);
+			
 			start=System.currentTimeMillis();    //새로운 start 시간 저장
 			while((b=fis.read(buf))!= -1) {   
 				//read메소드는 읽어온 바이트 크기를 return 합니다.-마지막 실행때는 1024보다 작거나 같습니다.
@@ -52,12 +62,19 @@ public class FileIOTest5 {
 		
 			fos.close();
 			fis.close();    
-		} catch (IOException e) {  //IOException 의 하위클래스를 모두 처리할수 있습니다.
+			
+		}catch (FileNotFoundException e) {  //자식(하위) 타입을 먼저 검사해야 합니다.순서가 바뀌면 컴파일오류 발생
+			System.out.println("선택한 파일과 경로명이 잘못되었습니다." + e.getMessage());
+		}catch (IOException e) {  //IOException 의 하위클래스를 모두 처리할수 있습니다.
 			System.out.println("입력 오류 : " + e.getMessage());
 			e.printStackTrace();   //오류내용 추적하여 출력
-		}
-	
+		} 
 		
 	}
 
 }
+
+
+
+
+

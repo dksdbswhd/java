@@ -1,10 +1,13 @@
 package day15.mydict1;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 //메소드 생성 연습 : 파일에서 읽어오기(파일명 인자)-> mydicts 리스트에 저장, 파일에 저장하기(파일명 인자), 단어추가하기, 단어전체보기
 public class MyDictApp_ListTest {
@@ -14,7 +17,10 @@ public class MyDictApp_ListTest {
 		
 		String filename ="C:\\Users\\admin\\Desktop\\listDict.txt";		//사용자가 선택할수 있는 내용-> main메소드에서 합니다.
 		boolean flag=true;
-		dictRead(filename);	//지정된 파일에 저장된 데이터 읽어와서 mydicts 리스트에 저장하기
+		try {
+			dictRead(filename);	//지정된 파일에 저장된 데이터 읽어와서 mydicts 리스트에 저장하기
+		}catch(FileNotFoundException e) { System.out.println(filename + " 파일이 존재하지 않습니다."); }
+		
 		while(flag) {
 			System.out.println("-------------------------------------------------------------- ");
 			System.out.println("1.새로운 단어 추가     2.저장된 단어 전체보기     3.파일에 저장    4.프로그램 종료     ");
@@ -47,10 +53,38 @@ public class MyDictApp_ListTest {
 		System.out.println("프로그램 종료합니다.");	
 	}//main end		
 	
-	private static void dictRead(String filename) {
-		// TODO Auto-generated method stub
+	//filename 에 저장된 데이터를 mydicts 리스트로 저장하기.
+	private static void dictRead(String filename) throws FileNotFoundException {
+		Scanner fsc=null;   //파일입력 객체 참조 변수
+		StringTokenizer st;
+		StringBuilder sb = new StringBuilder();
 		
+		File file = new File(filename);   //파일이 없으면 익셉션 처리
+		fsc = new Scanner(file);
+		while(fsc.hasNextLine()) {
+			sb.append(fsc.nextLine()).append("*");
+		}	
+/*		
+		System.out.println("---파일입력결과---");
+		System.out.println(sb);  //확인용 출력
+		System.out.println("---------------");
+*/		
+		st= new StringTokenizer(sb.toString(),"*");
+		List<String> kor;
+		while(st.hasMoreTokens()) {
+			Word w = new Word(st.nextToken());   //첫번째 읽은 토큰은 english 필드값 초기화에 사용합니다.
+			String temp=st.nextToken();			//koreans필드값 -> List<String> 타입 객체로 변환해야 합니다.
+			System.out.println("--토큰스트링--" + temp + "----");
+			temp=temp.substring(1, temp.length()-1);   //[공허한, 빈] ==> 공허한, 빈 => 배열로 변환 split(분리기준) 메소드
+			//kor = Arrays.asList(temp.split(", "));     //split 메소드로 분리된 문자열 배열을 리스트 객체로 생성합니다.(고정길이)
+			kor = new ArrayList<String>(Arrays.asList(temp.split(", ")));  //가변길이 리스트로 생서합니다.
+			w.setKoreans(kor);
+			System.out.println("--리스트--" + kor + "----");
+			mydicts.add(w);					//리스트에 Word 객체 추가합니다.
+		}
+		fsc.close();
 	}
+	
 
 	//mydicts 리스트를 filename 인자값 파일로 저장합니다.- 익셉션 처리 방법1)
 	private static void dictSave_(String filename) {

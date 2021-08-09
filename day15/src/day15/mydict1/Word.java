@@ -6,11 +6,11 @@ public class Word {
 	private String english;
 	private List<String> koreans;    //컬렉션(List 계열) 타입은 인터페이스로 선언합니다.
 	
-	public Word() {
-		
+	//코딩하면서 커스텀 생성자 정의 합니다.
+	public Word(String english) {
+		this.english=english;
 	}
 	
-	//코딩하면서 커스텀 생성자 정의 합니다.
 	public Word(String english,List<String> koreans) {
 		this.english=english;
 		this.koreans=koreans;
@@ -20,7 +20,7 @@ public class Word {
 	@Override
 	public String toString() {    //파일에 어떻게 저장할 것인가를 고려해서 재정의 합니다.
 		// TODO Auto-generated method stub
-		return english + " " + koreans;  //List의 toString() 출력형식 : [정적인, 실행중에 변화가 없는]
+		return english + "*" + koreans;  //List의 toString() 출력형식 : [정적인, 실행중에 변화가 없는]
 	}
 	
 	

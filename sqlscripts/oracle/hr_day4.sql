@@ -96,6 +96,69 @@ SELECT JOB_ID , count(*) CNT, avg(SALARY) SAL_AVG
 	FROM EMPLOYEES
 	GROUP BY JOB_ID 
 	HAVING avg(SALARY) > 9000
-	ORDER BY avg(SALARY);
+	ORDER BY count(*) DESC ,JOB_ID  ;
+--	ORDER BY avg(SALARY);
 
 -- 결론 : 그룹화 순서 from -> where -> group by -> having -> order by
+
+-- Employees 테이블에 그룹화가 가능한 컬럼 : job_id, manager_id, department_id
+--        -> 다른 컬럼 2개도 group by 연습하세요. 4개 select 쿼리 만드세요. 
+--		  -> 실행한 쿼리(query-> select) 화면 캡쳐해서 올려주세요> 
+
+
+-- 2개의 테이블로부터 데이터를 조회하는 방법
+
+select department_id, max(salary) from employees 
+	where department_id=100 
+	group by department_id;
+
+SELECT * FROM DEPARTMENTS;
+
+-- 1) 서브쿼리   : () 안에 작성합니다.서브쿼리 결과는 1개 컬럼으로.
+
+-- 부서ID가 100번인 최고급여액을 받는 사람의 이름,급여,부서ID를 조회하여라.
+--  아래서브쿼리 12008 리턴합니다.
+SELECT last_name, salary, department_id FROM EMPLOYEES 
+	WHERE SALARY = (SELECT max(salary) FROM EMPLOYEES WHERE DEPARTMENT_ID =100 
+							GROUP BY DEPARTMENT_ID )
+		AND DEPARTMENT_ID =100;
+	
+SELECT last_name, salary, department_id FROM EMPLOYEES 
+	WHERE SALARY >= (SELECT max(salary) FROM EMPLOYEES WHERE DEPARTMENT_ID =100 
+							GROUP BY DEPARTMENT_ID )
+	ORDER BY SALARY ;	
+
+-- 	job_id 가 st_clerk 인 모든 직원들의 급여(최대값) 보다 많은 사람들					
+SELECT last_name , salary, department_id FROM EMPLOYEES 
+	WHERE SALARY > ALL ( SELECT SALARY FROM EMPLOYEES WHERE JOB_ID ='ST_CLERK' );
+
+SELECT last_name , salary, department_id FROM EMPLOYEES 
+	WHERE SALARY >= ALL ( SELECT SALARY FROM EMPLOYEES WHERE DEPARTMENT_ID =100)
+	ORDER BY SALARY ;  
+
+SELECT last_name , salary, department_id FROM EMPLOYEES 
+	WHERE SALARY <= ALL ( SELECT SALARY FROM EMPLOYEES WHERE DEPARTMENT_ID =100)
+	ORDER BY SALARY ;  -- 부서ID 100의 최소급여액보다 작거나 같은 사람들 조회
+
+
+-- 직원ID(직원테이블)가 100인 사람의 부서 정보(부서테이블의 모든 필드)를 조회
+select * from departments 
+	where department_id = 
+		(select department_id from employees where employee_id=140);  -- 값 90으로 조회
+	
+SELECT * FROM EMPLOYEES ;	
+
+-- 2) join
+--   -> 다음 진도 시간에....
+
+
+
+
+
+
+
+
+
+
+
+

@@ -151,7 +151,7 @@ DROP TABLE SCORE;
 
 
 
-
+-- 결론 : 오늘의 주제는 alter table 과 제약조건(pk,fk)
 
 
 	

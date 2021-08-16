@@ -89,7 +89,21 @@ WITH sale as(  -- 임시테이블 -> 단 한번 사용 합니다.이름은 sale
 	FROM buy# b, product# p        -- 오라클은 테이블명 뒤에 AS 안씁니다.
 	WHERE b.pcode = p.pcode
 )
+--1. 고객별 총 구매금액
+-- SELECT custom_id, sum(total) FROM sale GROUP BY custom_id;
 
+--2. 상품별 총 판매금액
+SELECT p_code ,sum(total) FROM sale GROUP BY p_code;
+
+-- with 안쓸때
+SELECT p_code ,sum(total) 
+	FROM  (SELECT CUSTOM_ID , b.pcode AS p_code,pname,price,quantity , 
+		          price*quantity AS total  
+			FROM buy# b, product# p        
+			WHERE b.pcode = p.pcode) 
+	GROUP BY p_code;
+
+-- SELECT * FROM sale;  -- 테스트용
 
 
 

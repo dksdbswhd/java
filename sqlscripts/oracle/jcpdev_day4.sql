@@ -93,12 +93,6 @@ INSERT INTO "BUY#"(BUY_NO, CUSTOM_ID, PCODE, QUANTITY)
 VALUES(buy_seq.nextval, 'jungYu', 'ACH991', 4);
 
 
-
-
-
-
-
-
 -- 오라클 데이터베이스 객체 : 시퀀스 - 정수값 n ~ m 까지 +/- k 만큼 값을 계산해서 
 --                      일련번호 등의 값을 자동으로 생성(nextval 함수) 
 --					    시퀀스는 값을 앞으로 돌릴 수 없으므로 같은 이름으로 1부터 시작하고 싶으면

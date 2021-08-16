@@ -124,5 +124,21 @@ SELECT * FROM V_SALE;
 SELECT * FROM V_SALE WHERE CUSTOM_ID ='nayeon';
 
 
+-- 아우터 조인 outer join : 외부 조인 (+) 연산기호로 표시
+--		    정상적으로 조인조건을 만족하지 않는 행들도 조인결과에 포함 합니다.
+
+SELECT * FROM "BUY#" b,"CUSTOM#" c WHERE b.CUSTOM_ID = c.CUSTOM_ID ;         --동등(equal) 조인
+
+DELETE  FROM "BUY#" b WHERE b.CUSTOM_ID ='momo';
+SELECT * FROM "BUY#" b,"CUSTOM#" c WHERE b.CUSTOM_ID = c.CUSTOM_ID ;    -- 'momo' 내용을  buy#에서 삭제 
+
+-- custom# 테이블에는 momo 있구요, buy# 에는 momo가 없습니다.(구매가 없습니다.) -> 포함해서 join 하고 싶다면
+SELECT * FROM "BUY#" b,"CUSTOM#" c WHERE b.CUSTOM_ID(+) = c.CUSTOM_ID;
+
+
+SELECT c.custom_id AS id, name, reg_date,age, nvl(pcode,'구매없음'),nvl(QUANTITY,0)
+FROM "BUY#" b ,"CUSTOM#" c WHERE b.CUSTOM_ID(+) = c.CUSTOM_ID;
+
+-- 오늘은 수업한 내용은 최대한 오늘 복습합니다. 미루지 맙시다.!!!
 
 

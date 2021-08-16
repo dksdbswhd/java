@@ -139,6 +139,9 @@ SELECT * FROM "BUY#" b,"CUSTOM#" c WHERE b.CUSTOM_ID(+) = c.CUSTOM_ID;
 SELECT c.custom_id AS id, name, reg_date,age, nvl(pcode,'구매없음'),nvl(QUANTITY,0)
 FROM "BUY#" b ,"CUSTOM#" c WHERE b.CUSTOM_ID(+) = c.CUSTOM_ID;
 
+--SELECT c.custom_id AS id, name, reg_date,age, nvl(pcode,'구매없음'),nvl(QUANTITY,0)
+--FROM  "CUSTOM#" c LEFT OUTER JOIN "BUY#" b on b.CUSTOM_ID = c.CUSTOM_ID;
+
 -- 오늘은 수업한 내용은 최대한 오늘 복습합니다. 미루지 맙시다.!!!
 
 

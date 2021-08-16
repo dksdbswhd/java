@@ -79,7 +79,8 @@ SELECT CUSTOM_ID , b.pcode,pname, price,quantity , price*quantity total
 SELECT * FROM "BUY#";
 
 
--- 위에 조인한 결과로 그룹화 : 1) with  2) from 뒤에 조인 sql 을 직접쓴다.  3) create view
+-- 위에 조인한 결과로 그룹화 : 
+--				방법1) with  방법2) from 뒤에 조인 sql 을 직접쓴다.  방법3) create view
 --       ㄴ  1.고객별 총 구매금액 -> sum(total) -> group by custom_id(FK)
 --       ㄴ  2.상품별 총 판매금액 -> sum(total) -> group by pcode(FK)
 

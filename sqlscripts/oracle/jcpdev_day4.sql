@@ -48,6 +48,57 @@ CREATE TABLE buy#(
 			REFERENCES product#(pcode)
 );
 
+INSERT INTO "CUSTOM#"(CUSTOM_ID, NAME, EMAIL, AGE)
+VALUES('nayeon', '임나연', 'na@korea.com', 25);
+INSERT INTO "CUSTOM#"(CUSTOM_ID, NAME, EMAIL, AGE)
+VALUES('jungYu', '유정연', 'jung@daum.net', 27);
+INSERT INTO "CUSTOM#"(CUSTOM_ID, NAME, EMAIL, AGE)
+VALUES('momo', '히라이모모', 'momo@gmail.com', 24);
+INSERT INTO "CUSTOM#"(CUSTOM_ID, NAME, EMAIL, AGE)
+VALUES('dahyeon', '김다현', 'da@naver.com',33);
+
+
+INSERT INTO JCPDEV."PRODUCT#"(PCODE, CATEGORY, PNAME, PRICE)
+VALUES('SAV1245-01', '10', '비스포크 청소기', 176000);
+INSERT INTO JCPDEV."PRODUCT#"(PCODE, CATEGORY, PNAME, PRICE)
+VALUES('ACH991', '11', '아이패드프로 5', 270000);
+INSERT INTO JCPDEV."PRODUCT#"(PCODE, CATEGORY, PNAME, PRICE)
+VALUES('H49452', '12', '블루투스헤드폰', 90400);
+INSERT INTO JCPDEV."PRODUCT#" (PCODE, CATEGORY, PNAME, PRICE)
+VALUES('LG98T2', '10', '노트북', 392300);
+INSERT INTO JCPDEV."PRODUCT#"(PCODE, CATEGORY, PNAME, PRICE)
+VALUES('MU98', '12', 'USB 1TB', 14000);
+
+-- TRUNCATE TABLE buy#;  -- 데이터만 삭제.
+
+CREATE SEQUENCE buy_seq;
+
+-- ※ buy# 테이블 데이터 insert 전에 custom#, product# 데이터 insert 먼저 실행이 되어야 합니다.
+-- ※ 이유: buy# 테이블은 외래키를 설정하여 참조 무결성을 검사하고 있습니다. 
+INSERT INTO buy# (buy_no,CUSTOM_ID,PCODE,QUANTITY)    -- 컬럼 갯수와 데이터갯수가 일치해야 합니다.
+	VALUES(buy_seq.nextval,'jungYu','H49452',1);
+INSERT INTO "BUY#"(buy_no,CUSTOM_ID,PCODE,QUANTITY)  --테이블명에 따옴표기호 사용할때는 반드시 대문자로 표기합니다.
+	VALUES(buy_seq.nextval,'momo','MU98',3);
+INSERT INTO "BUY#"(buy_no,CUSTOM_ID,PCODE,QUANTITY) 
+	VALUES(buy_seq.nextval,'dahyeon','SAV1245-01',2);
+INSERT INTO "BUY#"(BUY_NO, CUSTOM_ID, PCODE, QUANTITY)
+VALUES(buy_seq.nextval, 'nayeon', 'MU98', 2);
+INSERT INTO "BUY#"(BUY_NO, CUSTOM_ID, PCODE, QUANTITY)
+VALUES(buy_seq.nextval, 'dahyeon', 'ACH991', 3);
+INSERT INTO "BUY#"(BUY_NO, CUSTOM_ID, PCODE, QUANTITY)
+VALUES(buy_seq.nextval, 'jungYu', 'LG98T2', 2);
+INSERT INTO "BUY#"(BUY_NO, CUSTOM_ID, PCODE, QUANTITY)
+VALUES(buy_seq.nextval, 'nayeon', 'LG98T2', 2);
+INSERT INTO "BUY#"(BUY_NO, CUSTOM_ID, PCODE, QUANTITY)
+VALUES(buy_seq.nextval, 'jungYu', 'ACH991', 4);
+
+
+
+
+
+
+
+
 -- 오라클 데이터베이스 객체 : 시퀀스 - 정수값 n ~ m 까지 +/- k 만큼 값을 계산해서 
 --                      일련번호 등의 값을 자동으로 생성(nextval 함수) 
 --					    시퀀스는 값을 앞으로 돌릴 수 없으므로 같은 이름으로 1부터 시작하고 싶으면
@@ -69,12 +120,6 @@ TRUNCATE TABLE tblseq# ;
 INSERT INTO tblseq#(column1) VALUES (test_seq.nextval);
 --3) 확인
 SELECT * FROM tblseq#;
-
-
-
-
-
-
 
 
 

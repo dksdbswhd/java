@@ -79,7 +79,7 @@ SELECT CUSTOM_ID , b.pcode,pname, price,quantity , price*quantity total
 SELECT * FROM "BUY#";
 
 
--- 위에 조인한 결과로 그룹화 
+-- 위에 조인한 결과로 그룹화 : 1) with  2) from 뒤에 조인 sql 을 직접쓴다.  3) create view
 --       ㄴ  1.고객별 총 구매금액 -> sum(total) -> group by custom_id(FK)
 --       ㄴ  2.상품별 총 판매금액 -> sum(total) -> group by pcode(FK)
 
@@ -100,17 +100,27 @@ SELECT p_code ,sum(total)
 	FROM  (SELECT CUSTOM_ID , b.pcode AS p_code,pname,price,quantity , 
 		          price*quantity AS total  
 			FROM buy# b, product# p        
-			WHERE b.pcode = p.pcode) 
+			WHERE b.pcode = p.pcode)   -- from 뒤의 select 결과는 인라인뷰(1회사용)
 	GROUP BY p_code;
 
 -- SELECT * FROM sale;  -- 테스트용
 
 
+-- select * from role_sys_privs where role='RESOURCE';  -- 시스템테이블(관리자 권한)
+-- View : 가상테이블(물리적공간을 갖지 않는다.) 기본 테이블들 이용해서 출력하고 싶은것 select 
+--        하여 사용자(개발자)가 테이블 처럼 사용할 수 있게 한다.
+--        view 를 생성하기 위해 resource,connect 권한 외에 create view 권한 필요합니다.
+CREATE VIEW v_sale   -- DROP VIEW 는 뷰 제거, ALTER VIEW 는 없습니다.
+AS
+SELECT CUSTOM_ID , b.pcode AS p_code,pname,price,quantity , 
+		          price*quantity AS total  
+			FROM buy# b, product# p        
+			WHERE b.pcode = p.pcode;
 
+SELECT * FROM V_SALE; 
+-- 뷰는 제한적인 데이터입력과 수정도 가능하지만 일반적으로 select (데이터조회) 목적으로 사용합니다.
 
-
-
-
+SELECT * FROM V_SALE WHERE CUSTOM_ID ='nayeon';
 
 
 

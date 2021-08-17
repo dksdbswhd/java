@@ -11,3 +11,10 @@ SELECT * FROM CUSTOM# WHERE CUSTOM_ID ='nana2';  -- 없을 때 결과 행(row) 없음
 
 
 -- 모든 행 조회하는 select 부터 먼저 자바에서 코딩을 해봅니다. 그리고 위에 것에 적용합니다.
+
+SELECT * FROM CUSTOM#; 
+
+--custom_id 컬럼은 PK -> 중복값이 없다. -> 1개 또는 0개 row 조회됩니다.
+SELECT * FROM CUSTOM# WHERE custom_id = 'momo';    
+
+SELECT * FROM CUSTOM# WHERE age= 25 ;    -- age 중복값을 갖는 컬럼 -> 조회된 ROW 개수 0개,1개,2개 이상

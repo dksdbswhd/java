@@ -1,4 +1,4 @@
-package util.jdbc;
+﻿package util.jdbc;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -75,7 +75,7 @@ public class FinalIDCheck {
 			rs = pstmt.executeQuery();   
 			if(rs.next()) {   //id는 중복id -> 사용할수 없다.
 				return false;    //중복값이면 false 리턴
-			} 
+			} else return true;
 			
 		} catch (SQLException e) {
 			System.out.println("SQL 실행에 오류가 발생했습니다. : " + e.getMessage());
@@ -90,7 +90,7 @@ public class FinalIDCheck {
 			}
 		}
 		
-		return true;   //입력 id 중복 없을 때
+		return false;   //입력 id 중복 없을 때
 		
 	}// idcheck end	
 

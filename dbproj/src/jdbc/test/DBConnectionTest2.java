@@ -12,10 +12,8 @@ public class DBConnectionTest2 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		Connection conn = OracleConnectionUtil.connect();
 		System.out.println(conn); // 출력값이 null 이면 db연결 안된 상태입니다.
 
-		String sql = "INSERT INTO CUSTOM# (CUSTOM_ID, NAME, EMAIL, AGE) VALUES(?,?,?,?)";
 		// CUSTOM_ID 컬럼 : 무결성 PK 제약조건 검사합니다.-> 중복된값 X, null X
 		//
 		String id, name, email;
@@ -29,6 +27,8 @@ public class DBConnectionTest2 {
 		email = sc.nextLine();
 		System.out.print("나이 입력하세요 >>>");
 		age = sc.nextInt();
+		Connection conn = OracleConnectionUtil.connect();
+		String sql = "INSERT INTO CUSTOM# (CUSTOM_ID, NAME, EMAIL, AGE) VALUES(?,?,?,?)";
 
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);

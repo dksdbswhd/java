@@ -12,7 +12,7 @@ public class DBConnectionTest2 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		System.out.println(conn); // 출력값이 null 이면 db연결 안된 상태입니다.
+//		System.out.println(conn); // 출력값이 null 이면 db연결 안된 상태입니다.
 
 		// CUSTOM_ID 컬럼 : 무결성 PK 제약조건 검사합니다.-> 중복된값 X, null X
 		//

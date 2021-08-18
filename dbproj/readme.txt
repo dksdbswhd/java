@@ -20,3 +20,14 @@
    SelectWhereTest3.java : select 쿼리테스트3 -> where 조건 실행
    SelectWhereTest4.java : select 쿼리테스트3 -> where 조건 실행 , 중복된 id값 존재여부 확인
    FinalIDCheck.java : 사용자 입력할 때 PK무결성 위반하지 않도록 하는 id검사 예제
+   
+JDBC 둘째 날
+
+1. ProductListMain.java
+2. 			ㄴ ProductVo.java
+* Lombok.jar 설치
+3. CustomListMain.java
+* Singleton 연습 : singleton 패키지
+4. CustomDao.java
+5. CustomUpdateMain.java   --> 오늘의 미션!   
+   

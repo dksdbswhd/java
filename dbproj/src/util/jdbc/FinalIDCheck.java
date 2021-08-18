@@ -1,4 +1,4 @@
-﻿package util.jdbc;
+package util.jdbc;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -39,9 +39,9 @@ public class FinalIDCheck {
 		email = sc.nextLine();
 		System.out.print("나이 입력하세요 >>>");
 		age = sc.nextInt();
-
+		PreparedStatement pstmt=null;
 		try {
-			PreparedStatement pstmt = conn.prepareStatement(sql);
+			 pstmt= conn.prepareStatement(sql);
 
 			pstmt.setString(1, id);
 			pstmt.setString(2, name);
@@ -49,12 +49,17 @@ public class FinalIDCheck {
 			pstmt.setInt(4, age); // sql 을 먼저 전달 -> 필요한 데이터는 그 후에 설정이됩니다.
 
 			pstmt.execute();   //insert,update,delete SQL 문 실행할때는 execute() 메소드입니다.
-			pstmt.close(); // pstmt 사용 종료
 			System.out.println("insert 정상완료!!");
 		} catch (SQLException e) {
 			System.out.println("SQL 실행에 오류가 발생했습니다. : " + e.getMessage());
 			// e.printStackTrace();
 		} finally {
+			try {
+				pstmt.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} // pstmt 사용 종료
 			OracleConnectionUtil.close(conn); // 연결 종료
 		}
 
@@ -80,18 +85,19 @@ public class FinalIDCheck {
 		} catch (SQLException e) {
 			System.out.println("SQL 실행에 오류가 발생했습니다. : " + e.getMessage());
 			//e.printStackTrace();
-		} finally {  //return false 할때 finally 실행하고 리턴합니다.
+		} finally {  //try 안에서 return 할때 finally 실행하고 리턴합니다.
+				     //익셉션 발생하여 catch 실행하고 finally 실행. 
 			try {
-				rs.close();
-				pstmt.close();
+				rs.close();  //꼭 닫기
+				pstmt.close();   //꼭 닫기
 			} catch (SQLException e) {
 				System.out.println("close 오류 : " + e.getMessage());
 				//e.printStackTrace();
 			}
 		}
 		
-		return false;   //입력 id 중복 없을 때
-		
+		return false;
+	     
 	}// idcheck end	
 
 	

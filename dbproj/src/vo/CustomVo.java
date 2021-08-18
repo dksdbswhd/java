@@ -25,13 +25,11 @@ public class CustomVo {
 	}
 
 	//toString 재정의
-	
 	@Override
 	public String toString() {
 		return "CustomVo [custom_id=" + custom_id + ", name=" + name + ", email=" + email + ", age=" + age
 				+ ", reg_date=" + reg_date + "]";
 	}
-	
 	
 	//getter,setter
 	public String getCustom_id() {

@@ -23,12 +23,16 @@ SELECT * FROM product#;
 
 SELECT * FROM "CUSTOM#" c ;
 
+-- 이메일 정보만 수정
 UPDATE CUSTOM# SET EMAIL ='momo2@gmail.com'
 WHERE CUSTOM_ID ='momo';
 
+-- 이메일과 최근 정보 수정날짜를 reg_date 값에 적용
 UPDATE CUSTOM# SET EMAIL ='momo2@gmail.com' , REG_DATE = sysdate
 WHERE CUSTOM_ID ='momo';
 
+
+SELECT buy_seq.nextval FROM dual;
 
 
 

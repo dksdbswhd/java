@@ -33,10 +33,16 @@ JDBC 둘째 날
 
 
 JDBC 셋째 날
-
+- 어제 마지막 과제 : CustomUpdateMain.java
 -vo와 dao 클래스 역할 (mvc 패턴의 시작)
--FK 제약조건 위배 돼지 않도록 buy# 테이블 row 추가 
+-FK 제약조건 위배 돼지 않도록 buy# 테이블 row 추가
+	1) BuyVo.java
+	2) BuyDao.java
+	2) BuyMain.java
+	3) BuyMain2.java 
 -롬복라이브러이 사용해서 *Builder 패턴
+	1) builder 패키지
+	2) builder.buy 패키지
 -날짜타입데이터 변환 메소드(클래스별로 다릅니다.)
 
 

@@ -34,6 +34,14 @@ WHERE CUSTOM_ID ='momo';
 
 SELECT buy_seq.nextval FROM dual;
 
+alter table buy# add (del_date date);
+
+SELECT * FROM "BUY#" b ;
+
+SELECT sysdate + 3 FROM dual;   -- 현재날짜 + 3일
+-- 자바프로그램에서 날짜를 지정한다면.....-> 자바에서 + 3일, 임의날짜 지정,...
+
+
 
 
 

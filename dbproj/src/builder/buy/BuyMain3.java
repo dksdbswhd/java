@@ -1,19 +1,17 @@
-package jcpdev;
+package builder.buy;
 
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.Scanner;
 
-import dao.BuyDao;
 import dao.ProductDao;
-import vo.BuyVo;
 import vo.ProductVo;
-
-public class BuyMain2 {
+//BuyVo2 : builder 패턴 클래스 사용
+public class BuyMain3 {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		BuyDao buy_dao = BuyDao.getInstance();
+		BuyDao2 buy_dao = BuyDao2.getInstance();
 		ProductDao p_dao = ProductDao.getInstance();
 		
 		System.out.println("::: 상품 구매 :::");
@@ -32,10 +30,16 @@ public class BuyMain2 {
 		
 		
 		System.out.print("배송날짜 " +  "2021-08-22 입니다." );		//(+)
-		buy_dao.insert(new BuyVo(0, id, pcode, quan, null));	//FK 제약조건 발생하지 않도록 데이터 입력
+		
+		BuyVo2 vo2 = BuyVo2.builder().custom_id(id)
+								.pcode(pcode).quantity(quan).build();
+		buy_dao.insert(vo2);	//FK 제약조건 발생하지 않도록 데이터 입력
+		
 		
 		System.out.println("구매 완료되었습니다.감사합니다.");
 		System.out.println("프로그램 종료!!!");
 	}
 
 }
+
+

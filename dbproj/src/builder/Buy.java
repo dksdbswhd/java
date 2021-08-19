@@ -1,8 +1,9 @@
-package vo;
+package builder;
 
 import java.sql.Date;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -12,12 +13,11 @@ import lombok.ToString;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class BuyVo {
+@Builder			//Builder 패턴으로 객체를 생성할 수 있습니다.
+public class Buy {
 	private int buy_no;
 	private String custom_id;
 	private String pcode;
-	private int quantity;
-	private Date buy_date;
-
+	private Date reg_date;
 
 }

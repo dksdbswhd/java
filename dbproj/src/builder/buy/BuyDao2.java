@@ -1,22 +1,21 @@
-package dao;
+package builder.buy;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 import util.jdbc.OracleConnectionUtil;
-import vo.BuyVo;
 
-public class BuyDao {
+public class BuyDao2 {
 //Singleton 패턴 적용
-	private static BuyDao dao = new BuyDao();
-	private BuyDao() {  }
-	public static BuyDao getInstance() {
+	private static BuyDao2 dao = new BuyDao2();
+	private BuyDao2() {  }
+	public static BuyDao2 getInstance() {
 		return dao;
 	}
 	
 	//insert 메소드 원형(프로토타입?)
-	public void insert(BuyVo vo) {
+	public void insert(BuyVo2 vo) {
 //		String sql="INSERT INTO BUY# (BUY_NO,CUSTOM_ID,PCODE,QUANTITY) " +  
 //		"	VALUES(buy_seq.nextval, ?,?,?)";
 		String sql="INSERT INTO BUY# (BUY_NO,CUSTOM_ID,PCODE,QUANTITY,del_date) " +  

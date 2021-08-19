@@ -10,7 +10,7 @@ public class BuyMain {
 		//1)BuyVo 객체를 생성하세요. - 임의값으로 초기화
 //		BuyVo vo = new BuyVo(0,"momo","aaa",3,null);   //FK 위반 --> 오류
 		BuyVo vo = new BuyVo(0,"momo","LG98T2",3,null);   //정상 실행
-		
+
 		//2)BuyDao 의 insert 를 위의 객체로 실행.
 		BuyDao buy = BuyDao.getInstance();
 		buy.insert(vo);

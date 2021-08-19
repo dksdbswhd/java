@@ -18,3 +18,21 @@ SELECT * FROM CUSTOM#;
 SELECT * FROM CUSTOM# WHERE custom_id = 'momo';    
 
 SELECT * FROM CUSTOM# WHERE age= 25 ;    -- age 중복값을 갖는 컬럼 -> 조회된 ROW 개수 0개,1개,2개 이상
+
+SELECT * FROM product#;
+
+SELECT * FROM "CUSTOM#" c ;
+
+UPDATE CUSTOM# SET EMAIL ='momo2@gmail.com'
+WHERE CUSTOM_ID ='momo';
+
+UPDATE CUSTOM# SET EMAIL ='momo2@gmail.com' , REG_DATE = sysdate
+WHERE CUSTOM_ID ='momo';
+
+
+
+
+
+
+
+

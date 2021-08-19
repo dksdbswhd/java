@@ -47,6 +47,7 @@ public class CustomListMain {
 			return list;
 		} catch (SQLException e) {
 			System.out.println("custom List 조회에 문제가 있습니다. : " + e.getMessage());
+			e.printStackTrace();   //오류 추적할때 필요합니다.(개발 중일때는 작성)
 		}finally {
 			try {
 				rs.close(); 

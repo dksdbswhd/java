@@ -1,33 +1,33 @@
 /*
-custom -> »õ·Ó°Ô »ı¼º custom#
+custom -> ìƒˆë¡­ê²Œ ìƒì„± custom#
 product ->  product#
 buy -> buy#
 
-1. Á¦¾àÁ¶°Ç 
-1) pk - ÇÊ¼ö
-2) fk - ÇÊ¼ö : ÂüÁ¶°ü°è ÀÖ´Â °æ¿ì¿¡ »ı¼ºÇÕ´Ï´Ù.
+1. ì œì•½ì¡°ê±´ 
+1) pk - í•„ìˆ˜
+2) fk - í•„ìˆ˜ : ì°¸ì¡°ê´€ê³„ ìˆëŠ” ê²½ìš°ì— ìƒì„±í•©ë‹ˆë‹¤.
 3) not null
 4) check
-5) date Å¸ÀÔ ±âº»°ªÀº ÇöÀç³¯Â¥·Î ÇÕ´Ï´Ù. -> default sysdate
+5) date íƒ€ì… ê¸°ë³¸ê°’ì€ í˜„ì¬ë‚ ì§œë¡œ í•©ë‹ˆë‹¤. -> default sysdate
 
-2. µ¥ÀÌÅÍ insert - µ¥ÀÌÅÍ ÅëÀÏ ÇÕ´Ï´Ù.
+2. ë°ì´í„° insert - ë°ì´í„° í†µì¼ í•©ë‹ˆë‹¤.
 
 
-3. buy : ±âº»Å° ÄÃ·³ buy_no number(9) ¸¦ ¸¸µå¼¼¿ä. -> »õ·Ó°Ô Ãß°¡µÇ´Â row ¿¡ ´ëÇØ ÀÚµ¿Áõ°¡ ½ÃÅ°´Â
-	                                             ÀÏ·Ã¹øÈ£¸¦ Àû¿ëÇÒ ¿¹Á¤ÀÔ´Ï´Ù.
-	                          -> ½ÃÄö½º ÀÌ¸§ buy_seq ¸¦ »ı¼ºÇÏ¼¼¿ä.   (¸Ç ¾Æ·¡ Âü°í)                
+3. buy : ê¸°ë³¸í‚¤ ì»¬ëŸ¼ buy_no number(9) ë¥¼ ë§Œë“œì„¸ìš”. -> ìƒˆë¡­ê²Œ ì¶”ê°€ë˜ëŠ” row ì— ëŒ€í•´ ìë™ì¦ê°€ ì‹œí‚¤ëŠ”
+	                                             ì¼ë ¨ë²ˆí˜¸ë¥¼ ì ìš©í•  ì˜ˆì •ì…ë‹ˆë‹¤.
+	                          -> ì‹œí€€ìŠ¤ ì´ë¦„ buy_seq ë¥¼ ìƒì„±í•˜ì„¸ìš”.   (ë§¨ ì•„ë˜ ì°¸ê³ )                
 	                                             
 */
-DROP TABLE CUSTOM#;  -- ÇÊ¿äÇÒ ¶§ Å×ÀÌºí »èÁ¦ÇÏ¼¼¿ä.
+DROP TABLE CUSTOM#;  -- í•„ìš”í•  ë•Œ í…Œì´ë¸” ì‚­ì œí•˜ì„¸ìš”.
 CREATE TABLE custom# (    
-	custom_id varchar2(20) CONSTRAINT custom_pk PRIMARY KEY, --¹ÙÀÌÆ® ÁöÁ¤
+	custom_id varchar2(20) CONSTRAINT custom_pk PRIMARY KEY, --ë°”ì´íŠ¸ ì§€ì •
 	name varchar2(20) NOT null,
 	email varchar2(20),
 	age number(3),   -- CHECK (age >=14)
 	reg_date DATE DEFAULT sysdate
 );
 
-DROP TABLE "PRODUCT#" ;  -- ÇÊ¿äÇÒ ¶§ Å×ÀÌºí »èÁ¦ÇÏ¼¼¿ä.
+DROP TABLE "PRODUCT#" ;  -- í•„ìš”í•  ë•Œ í…Œì´ë¸” ì‚­ì œí•˜ì„¸ìš”.
 
 CREATE TABLE product#(
 	pcode varchar2(10) constraint product_pk primary key,  
@@ -37,9 +37,9 @@ CREATE TABLE product#(
 );
 
 CREATE TABLE buy#(
-    buy_no number(9) constraint buy_pk primary key,  -- buy_seq ½ÃÄö½º Àû¿ëÇÒ ÄÃ·³ÀÔ´Ï´Ù.
-	custom_id varchar2(20) not null,  --"CUSTOM#"  Å×ÀÌºí ÂüÁ¶
-	pcode varchar2(10) not null, -- "PRODUCT#"  Å×ÀÌºí ÂüÁ¶
+    buy_no number(9) constraint buy_pk primary key,  -- buy_seq ì‹œí€€ìŠ¤ ì ìš©í•  ì»¬ëŸ¼ì…ë‹ˆë‹¤.
+	custom_id varchar2(20) not null,  --"CUSTOM#"  í…Œì´ë¸” ì°¸ì¡°
+	pcode varchar2(10) not null, -- "PRODUCT#"  í…Œì´ë¸” ì°¸ì¡°
 	quantity NUMBER(5) CHECK(quantity > 0), --how many?
 	buy_date DATE default sysdate ,
 	CONSTRAINT custom_id_fk FOREIGN KEY (custom_id)
@@ -49,35 +49,35 @@ CREATE TABLE buy#(
 );
 
 INSERT INTO "CUSTOM#"(CUSTOM_ID, NAME, EMAIL, AGE)
-VALUES('nayeon', 'ÀÓ³ª¿¬', 'na@korea.com', 25);
+VALUES('nayeon', 'ì„ë‚˜ì—°', 'na@korea.com', 25);
 INSERT INTO "CUSTOM#"(CUSTOM_ID, NAME, EMAIL, AGE)
-VALUES('jungYu', 'À¯Á¤¿¬', 'jung@daum.net', 27);
+VALUES('jungYu', 'ìœ ì •ì—°', 'jung@daum.net', 27);
 INSERT INTO "CUSTOM#"(CUSTOM_ID, NAME, EMAIL, AGE)
-VALUES('momo', 'È÷¶óÀÌ¸ğ¸ğ', 'momo@gmail.com', 24);
+VALUES('momo', 'íˆë¼ì´ëª¨ëª¨', 'momo@gmail.com', 24);
 INSERT INTO "CUSTOM#"(CUSTOM_ID, NAME, EMAIL, AGE)
-VALUES('dahyeon', '±è´ÙÇö', 'da@naver.com',33);
+VALUES('dahyeon', 'ê¹€ë‹¤í˜„', 'da@naver.com',33);
 
 
 INSERT INTO JCPDEV."PRODUCT#"(PCODE, CATEGORY, PNAME, PRICE)
-VALUES('SAV1245-01', '10', 'ºñ½ºÆ÷Å© Ã»¼Ò±â', 176000);
+VALUES('SAV1245-01', '10', 'ë¹„ìŠ¤í¬í¬ ì²­ì†Œê¸°', 176000);
 INSERT INTO JCPDEV."PRODUCT#"(PCODE, CATEGORY, PNAME, PRICE)
-VALUES('ACH991', '11', '¾ÆÀÌÆĞµåÇÁ·Î 5', 270000);
+VALUES('ACH991', '11', 'ì•„ì´íŒ¨ë“œí”„ë¡œ 5', 270000);
 INSERT INTO JCPDEV."PRODUCT#"(PCODE, CATEGORY, PNAME, PRICE)
-VALUES('H49452', '12', 'ºí·çÅõ½ºÇìµåÆù', 90400);
+VALUES('H49452', '12', 'ë¸”ë£¨íˆ¬ìŠ¤í—¤ë“œí°', 90400);
 INSERT INTO JCPDEV."PRODUCT#" (PCODE, CATEGORY, PNAME, PRICE)
-VALUES('LG98T2', '10', '³ëÆ®ºÏ', 392300);
+VALUES('LG98T2', '10', 'ë…¸íŠ¸ë¶', 392300);
 INSERT INTO JCPDEV."PRODUCT#"(PCODE, CATEGORY, PNAME, PRICE)
 VALUES('MU98', '12', 'USB 1TB', 14000);
 
--- TRUNCATE TABLE buy#;  -- µ¥ÀÌÅÍ¸¸ »èÁ¦.
+-- TRUNCATE TABLE buy#;  -- ë°ì´í„°ë§Œ ì‚­ì œ.
 
 CREATE SEQUENCE buy_seq;
 
--- ¡Ø buy# Å×ÀÌºí µ¥ÀÌÅÍ insert Àü¿¡ custom#, product# µ¥ÀÌÅÍ insert ¸ÕÀú ½ÇÇàÀÌ µÇ¾î¾ß ÇÕ´Ï´Ù.
--- ¡Ø ÀÌÀ¯: buy# Å×ÀÌºíÀº ¿Ü·¡Å°¸¦ ¼³Á¤ÇÏ¿© ÂüÁ¶ ¹«°á¼ºÀ» °Ë»çÇÏ°í ÀÖ½À´Ï´Ù. 
-INSERT INTO buy# (buy_no,CUSTOM_ID,PCODE,QUANTITY)    -- ÄÃ·³ °¹¼ö¿Í µ¥ÀÌÅÍ°¹¼ö°¡ ÀÏÄ¡ÇØ¾ß ÇÕ´Ï´Ù.
+-- â€» buy# í…Œì´ë¸” ë°ì´í„° insert ì „ì— custom#, product# ë°ì´í„° insert ë¨¼ì € ì‹¤í–‰ì´ ë˜ì–´ì•¼ í•©ë‹ˆë‹¤.
+-- â€» ì´ìœ : buy# í…Œì´ë¸”ì€ ì™¸ë˜í‚¤ë¥¼ ì„¤ì •í•˜ì—¬ ì°¸ì¡° ë¬´ê²°ì„±ì„ ê²€ì‚¬í•˜ê³  ìˆìŠµë‹ˆë‹¤. 
+INSERT INTO buy# (buy_no,CUSTOM_ID,PCODE,QUANTITY)    -- ì»¬ëŸ¼ ê°¯ìˆ˜ì™€ ë°ì´í„°ê°¯ìˆ˜ê°€ ì¼ì¹˜í•´ì•¼ í•©ë‹ˆë‹¤.
 	VALUES(buy_seq.nextval,'jungYu','H49452',1);
-INSERT INTO "BUY#"(buy_no,CUSTOM_ID,PCODE,QUANTITY)  --Å×ÀÌºí¸í¿¡ µû¿ÈÇ¥±âÈ£ »ç¿ëÇÒ¶§´Â ¹İµå½Ã ´ë¹®ÀÚ·Î Ç¥±âÇÕ´Ï´Ù.
+INSERT INTO "BUY#"(buy_no,CUSTOM_ID,PCODE,QUANTITY)  --í…Œì´ë¸”ëª…ì— ë”°ì˜´í‘œê¸°í˜¸ ì‚¬ìš©í• ë•ŒëŠ” ë°˜ë“œì‹œ ëŒ€ë¬¸ìë¡œ í‘œê¸°í•©ë‹ˆë‹¤.
 	VALUES(buy_seq.nextval,'momo','MU98',3);
 INSERT INTO "BUY#"(buy_no,CUSTOM_ID,PCODE,QUANTITY) 
 	VALUES(buy_seq.nextval,'dahyeon','SAV1245-01',2);
@@ -93,26 +93,26 @@ INSERT INTO "BUY#"(BUY_NO, CUSTOM_ID, PCODE, QUANTITY)
 VALUES(buy_seq.nextval, 'jungYu', 'ACH991', 4);
 
 
--- ¿À¶óÅ¬ µ¥ÀÌÅÍº£ÀÌ½º °´Ã¼ : ½ÃÄö½º - Á¤¼ö°ª n ~ m ±îÁö +/- k ¸¸Å­ °ªÀ» °è»êÇØ¼­ 
---                      ÀÏ·Ã¹øÈ£ µîÀÇ °ªÀ» ÀÚµ¿À¸·Î »ı¼º(nextval ÇÔ¼ö) 
---					    ½ÃÄö½º´Â °ªÀ» ¾ÕÀ¸·Î µ¹¸± ¼ö ¾øÀ¸¹Ç·Î °°Àº ÀÌ¸§À¸·Î 1ºÎÅÍ ½ÃÀÛÇÏ°í ½ÍÀ¸¸é
---						drop sequence [ÀÌ¸§] -> ½ÇÇàÇÏ°í ´Ù½Ã »ı¼ºÇÕ´Ï´Ù.
+-- ì˜¤ë¼í´ ë°ì´í„°ë² ì´ìŠ¤ ê°ì²´ : ì‹œí€€ìŠ¤ - ì •ìˆ˜ê°’ n ~ m ê¹Œì§€ +/- k ë§Œí¼ ê°’ì„ ê³„ì‚°í•´ì„œ 
+--                      ì¼ë ¨ë²ˆí˜¸ ë“±ì˜ ê°’ì„ ìë™ìœ¼ë¡œ ìƒì„±(nextval í•¨ìˆ˜) 
+--					    ì‹œí€€ìŠ¤ëŠ” ê°’ì„ ì•ìœ¼ë¡œ ëŒë¦´ ìˆ˜ ì—†ìœ¼ë¯€ë¡œ ê°™ì€ ì´ë¦„ìœ¼ë¡œ 1ë¶€í„° ì‹œì‘í•˜ê³  ì‹¶ìœ¼ë©´
+--						drop sequence [ì´ë¦„] -> ì‹¤í–‰í•˜ê³  ë‹¤ì‹œ ìƒì„±í•©ë‹ˆë‹¤.
 
 --1)
-CREATE SEQUENCE test_seq; -- nÀº 1ºÎÅÍ , k´Â +1 ¾¿ ±âº»°ªÀ¸·Î µ¿ÀÛÇÕ´Ï´Ù.
--- increment by °ª  start with °ª MINVALUE °ª MAXVALUE °ª
+CREATE SEQUENCE test_seq; -- nì€ 1ë¶€í„° , këŠ” +1 ì”© ê¸°ë³¸ê°’ìœ¼ë¡œ ë™ì‘í•©ë‹ˆë‹¤.
+-- increment by ê°’  start with ê°’ MINVALUE ê°’ MAXVALUE ê°’
 					CREATE TABLE tblseq# (
 							column1 number(3)
 					);
 
--- *) ½ÃÄö½º »èÁ¦
+-- *) ì‹œí€€ìŠ¤ ì‚­ì œ
 DROP SEQUENCE test_seq;
--- *) Å×ÀÌºí µ¥ÀÌÅÍ »èÁ¦
+-- *) í…Œì´ë¸” ë°ì´í„° ì‚­ì œ
 TRUNCATE TABLE tblseq# ;
 
---2) µ¥ÀÌÅÍ Ãß°¡ -> ½ÇÇàÀº 2) 3) ¸¸ ½ÇÇàÇÕ´Ï´Ù.
+--2) ë°ì´í„° ì¶”ê°€ -> ì‹¤í–‰ì€ 2) 3) ë§Œ ì‹¤í–‰í•©ë‹ˆë‹¤.
 INSERT INTO tblseq#(column1) VALUES (test_seq.nextval);
---3) È®ÀÎ
+--3) í™•ì¸
 SELECT * FROM tblseq#;
 
 

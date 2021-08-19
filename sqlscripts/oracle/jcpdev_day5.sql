@@ -1,45 +1,45 @@
 /*
-SQL Äõ¸®(select) º¹½À ¹®Á¦
+SQL ì¿¼ë¦¬(select) ë³µìŠµ ë¬¸ì œ
 
-1. custom# Å×ÀÌºí¿¡¼­ age °¡ 25¼¼ ÀÌ»ó ¸ðµç ³»¿ë Á¶È¸
-2. custom# Å×ÀÌºí¿¡¼­ custom_id 'momo' ÀÇ email Á¶È¸
-3. product# Å×ÀÌºí¿¡¼­ category '12' ÀÇ pname Á¶È¸
-4. product# Å×ÀÌºí¿¡¼­ price ÀÇ ÃÖ°í°ª Á¶È¸
-5. product# Å×ÀÌºí¿¡¼­ category '10' ÀÇ °¹¼ö Á¶È¸
-6. buy# Å×ÀÌºí¿¡¼­ custom_id 'nayeon' ÀÇ ¸ðµç ³»¿ë Á¶È¸
-7. buy# Å×ÀÌºí¿¡¼­ pcode °¡ 'LG'·Î ½ÃÀÛÇÏ´Â °Í Á¶È¸
-8. buy# Å×ÀÌºí¿¡¼­ cusom_id 'momo' °¡ ±¸¸ÅÇÑ »óÇ°ÀÇ ÀÌ¸§°ú °¡°Ý Á¶È¸(¼­ºêÄõ¸® »ç¿ë)
+1. custom# í…Œì´ë¸”ì—ì„œ age ê°€ 25ì„¸ ì´ìƒ ëª¨ë“  ë‚´ìš© ì¡°íšŒ
+2. custom# í…Œì´ë¸”ì—ì„œ custom_id 'momo' ì˜ email ì¡°íšŒ
+3. product# í…Œì´ë¸”ì—ì„œ category '12' ì˜ pname ì¡°íšŒ
+4. product# í…Œì´ë¸”ì—ì„œ price ì˜ ìµœê³ ê°’ ì¡°íšŒ
+5. product# í…Œì´ë¸”ì—ì„œ category '10' ì˜ ê°¯ìˆ˜ ì¡°íšŒ
+6. buy# í…Œì´ë¸”ì—ì„œ custom_id 'nayeon' ì˜ ëª¨ë“  ë‚´ìš© ì¡°íšŒ
+7. buy# í…Œì´ë¸”ì—ì„œ pcode ê°€ 'LG'ë¡œ ì‹œìž‘í•˜ëŠ” ê²ƒ ì¡°íšŒ
+8. buy# í…Œì´ë¸”ì—ì„œ cusom_id 'momo' ê°€ êµ¬ë§¤í•œ ìƒí’ˆì˜ ì´ë¦„ê³¼ ê°€ê²© ì¡°íšŒ(ì„œë¸Œì¿¼ë¦¬ ì‚¬ìš©)
 
 */
 
--- 11½Ã 30ºÐ±îÁö °¢ÀÚ ¿¬½ÀÇÏ°í ´äÀ» ¸¸µé¾î º¸¼¼¿ä.(Á¦Ãâ: ÀÌ¸ÞÀÏ koreait.2021@gmail.com) ¹Ì¿Ï¼ºÇØµµ Á¦Ãâ.
+-- 11ì‹œ 30ë¶„ê¹Œì§€ ê°ìž ì—°ìŠµí•˜ê³  ë‹µì„ ë§Œë“¤ì–´ ë³´ì„¸ìš”.(ì œì¶œ: ì´ë©”ì¼ koreait.2021@gmail.com) ë¯¸ì™„ì„±í•´ë„ ì œì¶œ.
 
 
--- Ç®ÀÌ
+-- í’€ì´
 
---1. custom# Å×ÀÌºí¿¡¼­ age °¡ 25¼¼ ÀÌ»ó ¸ðµç ³»¿ë Á¶È¸
+--1. custom# í…Œì´ë¸”ì—ì„œ age ê°€ 25ì„¸ ì´ìƒ ëª¨ë“  ë‚´ìš© ì¡°íšŒ
 SELECT * FROM "CUSTOM#" WHERE age >=25;
 
---2. custom# Å×ÀÌºí¿¡¼­ custom_id 'momo' ÀÇ email Á¶È¸
+--2. custom# í…Œì´ë¸”ì—ì„œ custom_id 'momo' ì˜ email ì¡°íšŒ
 SELECT EMAIL FROM "CUSTOM#" WHERE CUSTOM_ID ='momo';
 
---3. product# Å×ÀÌºí¿¡¼­ category '12' ÀÇ pname Á¶È¸
+--3. product# í…Œì´ë¸”ì—ì„œ category '12' ì˜ pname ì¡°íšŒ
 SELECT pname FROM "PRODUCT#"  WHERE CATEGORY ='12';
 
---4. product# Å×ÀÌºí¿¡¼­ price ÀÇ ÃÖ°í°ª Á¶È¸
+--4. product# í…Œì´ë¸”ì—ì„œ price ì˜ ìµœê³ ê°’ ì¡°íšŒ
 SELECT MAX(PRICE) FROM "PRODUCT#";
 
---5. product# Å×ÀÌºí¿¡¼­ category '10' ÀÇ °¹¼ö Á¶È¸
+--5. product# í…Œì´ë¸”ì—ì„œ category '10' ì˜ ê°¯ìˆ˜ ì¡°íšŒ
 SELECT count(*) FROM "PRODUCT#" WHERE CATEGORY ='10';
 
---6. buy# Å×ÀÌºí¿¡¼­ custom_id 'nayeon' ÀÇ ¸ðµç ³»¿ë Á¶È¸
+--6. buy# í…Œì´ë¸”ì—ì„œ custom_id 'nayeon' ì˜ ëª¨ë“  ë‚´ìš© ì¡°íšŒ
 SELECT * FROM buy# WHERE CUSTOM_ID ='nayeon';
 
---7. buy# Å×ÀÌºí¿¡¼­ pcode °¡ 'LG'·Î ½ÃÀÛÇÏ´Â °Í Á¶È¸
+--7. buy# í…Œì´ë¸”ì—ì„œ pcode ê°€ 'LG'ë¡œ ì‹œìž‘í•˜ëŠ” ê²ƒ ì¡°íšŒ
 SELECT * FROM buy# WHERE PCODE LIKE 'LG%';
 
---8. buy# Å×ÀÌºí¿¡¼­ cusom_id 'momo' °¡ ±¸¸ÅÇÑ »óÇ°ÀÇ ÀÌ¸§°ú °¡°Ý Á¶È¸(¼­ºêÄõ¸® »ç¿ë)
---  buy# Å×ÀÌºíÀÇ »óÇ° ³»¿ëÀº °°Àº °í°´ID°¡ ¿©·¯¹ø ÀúÀåµÉ ¼ö ÀÖ½À´Ï´Ù. 
+--8. buy# í…Œì´ë¸”ì—ì„œ cusom_id 'momo' ê°€ êµ¬ë§¤í•œ ìƒí’ˆì˜ ì´ë¦„ê³¼ ê°€ê²© ì¡°íšŒ(ì„œë¸Œì¿¼ë¦¬ ì‚¬ìš©)
+--  buy# í…Œì´ë¸”ì˜ ìƒí’ˆ ë‚´ìš©ì€ ê°™ì€ ê³ ê°IDê°€ ì—¬ëŸ¬ë²ˆ ì €ìž¥ë  ìˆ˜ ìžˆìŠµë‹ˆë‹¤. 
 SELECT  PNAME,PRICE FROM "PRODUCT#" 
 		WHERE PCODE IN (SELECT PCODE FROM "BUY#" WHERE CUSTOM_ID ='nayeon');
 
@@ -49,26 +49,26 @@ SELECT pcode FROM "BUY#" WHERE CUSTOM_ID ='momo';
 SELECT PNAME,PRICE FROM "PRODUCT#" WHERE PCODE = 'MU98';
 
 
--- JOIN : µÑ ÀÌ»óÀÇ Å×ÀÌºíÀ» ¿¬°áÇÏ³ª µ¥ÀÌÅÍ¸¦ °Ë»öÇÏ´Â ¹æ¹ý.
---		  µÎ °³ÀÇ Å×ÀÌºí¿¡ °øÅëµÈ ÄÃ·³À» »ç¿ëÇÑ´Ù.
--- µ¿µî Á¶ÀÎ (³»ºÎ Á¶ÀÎ) : ¿¹¸¦ µé¸é  buy# , product# Å×ÀÌºíÀ» Á¶ÀÎÇÏ¸é
+-- JOIN : ë‘˜ ì´ìƒì˜ í…Œì´ë¸”ì„ ì—°ê²°í•˜ë‚˜ ë°ì´í„°ë¥¼ ê²€ìƒ‰í•˜ëŠ” ë°©ë²•.
+--		  ë‘ ê°œì˜ í…Œì´ë¸”ì— ê³µí†µëœ ì»¬ëŸ¼ì„ ì‚¬ìš©í•œë‹¤.
+-- ë™ë“± ì¡°ì¸ (ë‚´ë¶€ ì¡°ì¸) : ì˜ˆë¥¼ ë“¤ë©´  buy# , product# í…Œì´ë¸”ì„ ì¡°ì¸í•˜ë©´
 
--- Çü½Ä from Å×ÀÌºí1 a,Å×ÀÌºí2 b where a.Áßº¹ÄÃ·³1 = b.Áßº¹ÄÃ·³1 : a,bÅ×ÀÌºíÀº ¼­·Î ÂüÁ¶°ü°è(ÂüÁ¶°ü°è¼³Á¤ÄÄ·³µ¿µî°ª)
+-- í˜•ì‹ from í…Œì´ë¸”1 a,í…Œì´ë¸”2 b where a.ì¤‘ë³µì»¬ëŸ¼1 = b.ì¤‘ë³µì»¬ëŸ¼1 : a,bí…Œì´ë¸”ì€ ì„œë¡œ ì°¸ì¡°ê´€ê³„(ì°¸ì¡°ê´€ê³„ì„¤ì •ì»´ëŸ¼ë™ë“±ê°’)
 
 SELECT * FROM buy#, product# WHERE buy#.pcode = product#.pcode;      
--- ¤¤ ±âº»Çü½ÄÀ¸·Î °£´Ü È®ÀÎ
+-- ã„´ ê¸°ë³¸í˜•ì‹ìœ¼ë¡œ ê°„ë‹¨ í™•ì¸
 
---SELECT pcode,price FROM buy#, product# WHERE buy#.pcode = product#.pcode;  -- Á¶ÀÎ ÈÄ Æ¯Á¤ÄÃ·³ ¼±ÅÃ
+--SELECT pcode,price FROM buy#, product# WHERE buy#.pcode = product#.pcode;  -- ì¡°ì¸ í›„ íŠ¹ì •ì»¬ëŸ¼ ì„ íƒ
 
 SELECT buy#.pcode,price FROM buy#, product# WHERE buy#.pcode = product#.pcode;
 
--- Å×ÀÌºí¸í, ÄÃ·³¸íÀ» alias (º°Äª)À» ¼³Á¤ÇÕ´Ï´Ù. -> ÀÌ¸§À» °£´ÜÇÏ°Ô ÇÕ´Ï´Ù.
+-- í…Œì´ë¸”ëª…, ì»¬ëŸ¼ëª…ì„ alias (ë³„ì¹­)ì„ ì„¤ì •í•©ë‹ˆë‹¤. -> ì´ë¦„ì„ ê°„ë‹¨í•˜ê²Œ í•©ë‹ˆë‹¤.
 
--- buy# Å×ÀÌºí¿¡¼­ pcode °ªÀ¸·Î price ¸¦ ¾Ë°í ½Í´Ù. PCODE = 'MU98'
--- buy# Å×ÀÌºí¿¡¼­ °¢°¢ ¸ðµç  buy_no º°·Î ±¸¸Å±Ý¾× °è»ê : price * quantity(¼ö·®)
-SELECT CUSTOM_ID , b.pcode,pname,price,quantity , price*quantity AS total  -- ÄÃ·³¸íÀº AS ½áµµ µË´Ï´Ù.
-		FROM buy# b, product# p        -- ¿À¶óÅ¬Àº Å×ÀÌºí¸í µÚ¿¡ AS ¾È¾¹´Ï´Ù.
-		WHERE b.pcode = p.pcode;    -- AS´Â ¾ÕÀ¸·Î »ý·«ÇÏ°í ¾¹´Ï´Ù.
+-- buy# í…Œì´ë¸”ì—ì„œ pcode ê°’ìœ¼ë¡œ price ë¥¼ ì•Œê³  ì‹¶ë‹¤. PCODE = 'MU98'
+-- buy# í…Œì´ë¸”ì—ì„œ ê°ê° ëª¨ë“   buy_no ë³„ë¡œ êµ¬ë§¤ê¸ˆì•¡ ê³„ì‚° : price * quantity(ìˆ˜ëŸ‰)
+SELECT CUSTOM_ID , b.pcode,pname,price,quantity , price*quantity AS total  -- ì»¬ëŸ¼ëª…ì€ AS ì¨ë„ ë©ë‹ˆë‹¤.
+		FROM buy# b, product# p        -- ì˜¤ë¼í´ì€ í…Œì´ë¸”ëª… ë’¤ì— AS ì•ˆì”ë‹ˆë‹¤.
+		WHERE b.pcode = p.pcode;    -- ASëŠ” ì•žìœ¼ë¡œ ìƒëžµí•˜ê³  ì”ë‹ˆë‹¤.
 
 SELECT CUSTOM_ID , b.pcode,pname, price,quantity , price*quantity total 
 		FROM buy# b, product# p 
@@ -79,39 +79,39 @@ SELECT CUSTOM_ID , b.pcode,pname, price,quantity , price*quantity total
 SELECT * FROM "BUY#";
 
 
--- À§¿¡ Á¶ÀÎÇÑ °á°ú·Î ±×·ìÈ­ : 
---				¹æ¹ý1) with  ¹æ¹ý2) from µÚ¿¡ Á¶ÀÎ sql À» Á÷Á¢¾´´Ù.  ¹æ¹ý3) create view
---       ¤¤  1.°í°´º° ÃÑ ±¸¸Å±Ý¾× -> sum(total) -> group by custom_id(FK)
---       ¤¤  2.»óÇ°º° ÃÑ ÆÇ¸Å±Ý¾× -> sum(total) -> group by pcode(FK)
+-- ìœ„ì— ì¡°ì¸í•œ ê²°ê³¼ë¡œ ê·¸ë£¹í™” : 
+--				ë°©ë²•1) with  ë°©ë²•2) from ë’¤ì— ì¡°ì¸ sql ì„ ì§ì ‘ì“´ë‹¤.  ë°©ë²•3) create view
+--       ã„´  1.ê³ ê°ë³„ ì´ êµ¬ë§¤ê¸ˆì•¡ -> sum(total) -> group by custom_id(FK)
+--       ã„´  2.ìƒí’ˆë³„ ì´ íŒë§¤ê¸ˆì•¡ -> sum(total) -> group by pcode(FK)
 
-WITH sale as(  -- ÀÓ½ÃÅ×ÀÌºí -> ´Ü ÇÑ¹ø »ç¿ë ÇÕ´Ï´Ù.ÀÌ¸§Àº sale
+WITH sale as(  -- ìž„ì‹œí…Œì´ë¸” -> ë‹¨ í•œë²ˆ ì‚¬ìš© í•©ë‹ˆë‹¤.ì´ë¦„ì€ sale
 	SELECT CUSTOM_ID , b.pcode AS p_code,pname,price,quantity , 
-		   price*quantity AS total  -- ÄÃ·³¸íÀº AS ½áµµ µË´Ï´Ù.
-	FROM buy# b, product# p        -- ¿À¶óÅ¬Àº Å×ÀÌºí¸í µÚ¿¡ AS ¾È¾¹´Ï´Ù.
+		   price*quantity AS total  -- ì»¬ëŸ¼ëª…ì€ AS ì¨ë„ ë©ë‹ˆë‹¤.
+	FROM buy# b, product# p        -- ì˜¤ë¼í´ì€ í…Œì´ë¸”ëª… ë’¤ì— AS ì•ˆì”ë‹ˆë‹¤.
 	WHERE b.pcode = p.pcode
 )
---1. °í°´º° ÃÑ ±¸¸Å±Ý¾×
+--1. ê³ ê°ë³„ ì´ êµ¬ë§¤ê¸ˆì•¡
 -- SELECT custom_id, sum(total) FROM sale GROUP BY custom_id;
 
---2. »óÇ°º° ÃÑ ÆÇ¸Å±Ý¾×
+--2. ìƒí’ˆë³„ ì´ íŒë§¤ê¸ˆì•¡
 SELECT p_code ,sum(total) FROM sale GROUP BY p_code;
 
--- with ¾È¾µ¶§
+-- with ì•ˆì“¸ë•Œ
 SELECT p_code ,sum(total) 
 	FROM  (SELECT CUSTOM_ID , b.pcode AS p_code,pname,price,quantity , 
 		          price*quantity AS total  
 			FROM buy# b, product# p        
-			WHERE b.pcode = p.pcode)   -- from µÚÀÇ select °á°ú´Â ÀÎ¶óÀÎºä(1È¸»ç¿ë)
+			WHERE b.pcode = p.pcode)   -- from ë’¤ì˜ select ê²°ê³¼ëŠ” ì¸ë¼ì¸ë·°(1íšŒì‚¬ìš©)
 	GROUP BY p_code;
 
--- SELECT * FROM sale;  -- Å×½ºÆ®¿ë
+-- SELECT * FROM sale;  -- í…ŒìŠ¤íŠ¸ìš©
 
 
--- select * from role_sys_privs where role='RESOURCE';  -- ½Ã½ºÅÛÅ×ÀÌºí(°ü¸®ÀÚ ±ÇÇÑ)
--- View : °¡»óÅ×ÀÌºí(¹°¸®Àû°ø°£À» °®Áö ¾Ê´Â´Ù.) ±âº» Å×ÀÌºíµé ÀÌ¿ëÇØ¼­ Ãâ·ÂÇÏ°í ½ÍÀº°Í select 
---        ÇÏ¿© »ç¿ëÀÚ(°³¹ßÀÚ)°¡ Å×ÀÌºí Ã³·³ »ç¿ëÇÒ ¼ö ÀÖ°Ô ÇÑ´Ù.
---        view ¸¦ »ý¼ºÇÏ±â À§ÇØ resource,connect ±ÇÇÑ ¿Ü¿¡ create view ±ÇÇÑ ÇÊ¿äÇÕ´Ï´Ù.
-CREATE VIEW v_sale   -- DROP VIEW ´Â ºä Á¦°Å, ALTER VIEW ´Â ¾ø½À´Ï´Ù.
+-- select * from role_sys_privs where role='RESOURCE';  -- ì‹œìŠ¤í…œí…Œì´ë¸”(ê´€ë¦¬ìž ê¶Œí•œ)
+-- View : ê°€ìƒí…Œì´ë¸”(ë¬¼ë¦¬ì ê³µê°„ì„ ê°–ì§€ ì•ŠëŠ”ë‹¤.) ê¸°ë³¸ í…Œì´ë¸”ë“¤ ì´ìš©í•´ì„œ ì¶œë ¥í•˜ê³  ì‹¶ì€ê²ƒ select 
+--        í•˜ì—¬ ì‚¬ìš©ìž(ê°œë°œìž)ê°€ í…Œì´ë¸” ì²˜ëŸ¼ ì‚¬ìš©í•  ìˆ˜ ìžˆê²Œ í•œë‹¤.
+--        view ë¥¼ ìƒì„±í•˜ê¸° ìœ„í•´ resource,connect ê¶Œí•œ ì™¸ì— create view ê¶Œí•œ í•„ìš”í•©ë‹ˆë‹¤.
+CREATE VIEW v_sale   -- DROP VIEW ëŠ” ë·° ì œê±°, ALTER VIEW ëŠ” ì—†ìŠµë‹ˆë‹¤.
 AS
 SELECT CUSTOM_ID , b.pcode AS p_code,pname,price,quantity , 
 		          price*quantity AS total  
@@ -119,29 +119,29 @@ SELECT CUSTOM_ID , b.pcode AS p_code,pname,price,quantity ,
 			WHERE b.pcode = p.pcode;
 
 SELECT * FROM V_SALE; 
--- ºä´Â Á¦ÇÑÀûÀÎ µ¥ÀÌÅÍÀÔ·Â°ú ¼öÁ¤µµ °¡´ÉÇÏÁö¸¸ ÀÏ¹ÝÀûÀ¸·Î select (µ¥ÀÌÅÍÁ¶È¸) ¸ñÀûÀ¸·Î »ç¿ëÇÕ´Ï´Ù.
+-- ë·°ëŠ” ì œí•œì ì¸ ë°ì´í„°ìž…ë ¥ê³¼ ìˆ˜ì •ë„ ê°€ëŠ¥í•˜ì§€ë§Œ ì¼ë°˜ì ìœ¼ë¡œ select (ë°ì´í„°ì¡°íšŒ) ëª©ì ìœ¼ë¡œ ì‚¬ìš©í•©ë‹ˆë‹¤.
 
 SELECT * FROM V_SALE WHERE CUSTOM_ID ='nayeon';
 
 
--- ¾Æ¿ìÅÍ Á¶ÀÎ outer join : ¿ÜºÎ Á¶ÀÎ (+) ¿¬»ê±âÈ£·Î Ç¥½Ã
---		    Á¤»óÀûÀ¸·Î Á¶ÀÎÁ¶°ÇÀ» ¸¸Á·ÇÏÁö ¾Ê´Â Çàµéµµ Á¶ÀÎ°á°ú¿¡ Æ÷ÇÔ ÇÕ´Ï´Ù.
+-- ì•„ìš°í„° ì¡°ì¸ outer join : ì™¸ë¶€ ì¡°ì¸ (+) ì—°ì‚°ê¸°í˜¸ë¡œ í‘œì‹œ
+--		    ì •ìƒì ìœ¼ë¡œ ì¡°ì¸ì¡°ê±´ì„ ë§Œì¡±í•˜ì§€ ì•ŠëŠ” í–‰ë“¤ë„ ì¡°ì¸ê²°ê³¼ì— í¬í•¨ í•©ë‹ˆë‹¤.
 
-SELECT * FROM "BUY#" b,"CUSTOM#" c WHERE b.CUSTOM_ID = c.CUSTOM_ID ;         --µ¿µî(equal) Á¶ÀÎ
+SELECT * FROM "BUY#" b,"CUSTOM#" c WHERE b.CUSTOM_ID = c.CUSTOM_ID ;         --ë™ë“±(equal) ì¡°ì¸
 
 DELETE  FROM "BUY#" b WHERE b.CUSTOM_ID ='momo';
-SELECT * FROM "BUY#" b,"CUSTOM#" c WHERE b.CUSTOM_ID = c.CUSTOM_ID ;    -- 'momo' ³»¿ëÀ»  buy#¿¡¼­ »èÁ¦ 
+SELECT * FROM "BUY#" b,"CUSTOM#" c WHERE b.CUSTOM_ID = c.CUSTOM_ID ;    -- 'momo' ë‚´ìš©ì„  buy#ì—ì„œ ì‚­ì œ 
 
--- custom# Å×ÀÌºí¿¡´Â momo ÀÖ±¸¿ä, buy# ¿¡´Â momo°¡ ¾ø½À´Ï´Ù.(±¸¸Å°¡ ¾ø½À´Ï´Ù.) -> Æ÷ÇÔÇØ¼­ join ÇÏ°í ½Í´Ù¸é
+-- custom# í…Œì´ë¸”ì—ëŠ” momo ìžˆêµ¬ìš”, buy# ì—ëŠ” momoê°€ ì—†ìŠµë‹ˆë‹¤.(êµ¬ë§¤ê°€ ì—†ìŠµë‹ˆë‹¤.) -> í¬í•¨í•´ì„œ join í•˜ê³  ì‹¶ë‹¤ë©´
 SELECT * FROM "BUY#" b,"CUSTOM#" c WHERE b.CUSTOM_ID(+) = c.CUSTOM_ID;
 
 
-SELECT c.custom_id AS id, name, reg_date,age, nvl(pcode,'±¸¸Å¾øÀ½'),nvl(QUANTITY,0)
+SELECT c.custom_id AS id, name, reg_date,age, nvl(pcode,'êµ¬ë§¤ì—†ìŒ'),nvl(QUANTITY,0)
 FROM "BUY#" b ,"CUSTOM#" c WHERE b.CUSTOM_ID(+) = c.CUSTOM_ID;
 
---SELECT c.custom_id AS id, name, reg_date,age, nvl(pcode,'±¸¸Å¾øÀ½'),nvl(QUANTITY,0)
+--SELECT c.custom_id AS id, name, reg_date,age, nvl(pcode,'êµ¬ë§¤ì—†ìŒ'),nvl(QUANTITY,0)
 --FROM  "CUSTOM#" c LEFT OUTER JOIN "BUY#" b on b.CUSTOM_ID = c.CUSTOM_ID;
 
--- ¿À´ÃÀº ¼ö¾÷ÇÑ ³»¿ëÀº ÃÖ´ëÇÑ ¿À´Ã º¹½ÀÇÕ´Ï´Ù. ¹Ì·çÁö ¸¿½Ã´Ù.!!!
+-- ì˜¤ëŠ˜ì€ ìˆ˜ì—…í•œ ë‚´ìš©ì€ ìµœëŒ€í•œ ì˜¤ëŠ˜ ë³µìŠµí•©ë‹ˆë‹¤. ë¯¸ë£¨ì§€ ë§™ì‹œë‹¤.!!!
 
 

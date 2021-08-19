@@ -1,8 +1,8 @@
--- jobs евюл╨М©║╪╜ ╣╔юлем╦╕ ╦П╣н ╨╦©╘╢ч╤С.
--- дц╥Ё╦М : job_id, job_title, min_salary,max_salary
--- row : дц╥Ё ╟╒╟╒©║ ╣╔юлем╟║ юЗюЕ╣г╦И гоЁ╙юг ╥╧дз╣Е(row) ╩Щ╪╨
-SELECT * FROM JOBS;    -- * : ╦П╣Г дц╥Ё
+-- jobs М┘▄Л²╢К╦■Л≈░Л└° К█╟Л²╢М└╟К╔╪ К╙╗К▒░ КЁ╢Л≈╛К▀╛К²╪.
+-- Л╩╛К÷╪К╙┘ : job_id, job_title, min_salary,max_salary
+-- row : Л╩╛К÷╪ Й╟│Й╟│Л≈░ К█╟Л²╢М└╟Й╟─ Л═─Л·╔К░≤К╘╢ М∙≤К┌≤Л²≤ К═┬Л╫■К⌠°(row) Л┐²Л└╠
+SELECT * FROM JOBS;    -- * : К╙╗К⌠═ Л╩╛К÷╪
 SELECT JOB_ID ,MAX_SALARY FROM jobs;
 
-SELECT * FROM DEPARTMENTS;  -- departments евюл╨М
-SELECT * FROM REGIONS;		--regions евюл╨М
+SELECT * FROM DEPARTMENTS;  -- departments М┘▄Л²╢К╦■
+SELECT * FROM REGIONS;		--regions М┘▄Л²╢К╦■

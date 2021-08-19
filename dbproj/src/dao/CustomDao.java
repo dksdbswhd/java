@@ -78,7 +78,7 @@ public class CustomDao { // Singleton 패턴 적용해보기
 				regdate = rs.getDate("REG_DATE");
 				vo = new CustomVo(id, name, email, age, regdate); // 객체 생성하고 초기화
 			}
-			System.out.println(vo); // vo는 null 초기화 필요
+			//System.out.println(vo); // vo는 null 초기화 필요
 
 		} catch (SQLException e) {
 			System.out.println("SQL 실행에 오류가 발생했습니다. : " + e.getMessage());
@@ -150,13 +150,17 @@ public class CustomDao { // Singleton 패턴 적용해보기
 
 	public void update(CustomVo vo) {
 		Connection conn = OracleConnectionUtil.connect();
-		String sql="UPDATE CUSTOM# SET EMAIL = ? WHERE CUSTOM_ID =?";   
+//		String sql="UPDATE CUSTOM# SET EMAIL = ? WHERE CUSTOM_ID =?";   
+		String sql="UPDATE CUSTOM# SET EMAIL = ? , REG_DATE = sysdate WHERE CUSTOM_ID =?";   
 		//custom_id 를 조건으로하여 email 을 수정할 수 있도록 합니다.(+)추가 reg_date 도 지금시간으로 변경
+		//               ㄴ sql문 수정해서 reg_date 변경 추가.
 		
 		try {
 			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, vo.getEmail());
 			pstmt.setString(2, vo.getCustom_id());
+//현재 날짜 
+			
 			pstmt.execute();
 			pstmt.close();
 		}catch (SQLException e) {

@@ -30,4 +30,18 @@ JDBC 둘째 날
 * Singleton 연습 : singleton 패키지
 4. CustomDao.java
 5. CustomUpdateMain.java   --> 오늘의 미션!   
+
+
+JDBC 셋째 날
+
+-vo와 dao 클래스 역할 (mvc 패턴의 시작)
+-FK 제약조건 위배 돼지 않도록 buy# 테이블 row 추가 
+-롬복라이브러이 사용해서 *Builder 패턴
+-날짜타입데이터 변환 메소드(클래스별로 다릅니다.)
+
+
+
+
+
+
    

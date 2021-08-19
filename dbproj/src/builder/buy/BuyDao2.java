@@ -28,7 +28,7 @@ public class BuyDao2 {
 			pstmt.setString(1, vo.getCustom_id());    //첫번째 ?
 	        pstmt.setString(2, vo.getPcode());		  //두번째 ?
 	        pstmt.setInt(3, vo.getQuantity());			//세번째 ?
-//	        pstmt.setDate(4, vo.getDel_date());
+	        pstmt.setDate(4, vo.getDel_date());			//네번째 ?
 			pstmt.execute();
 		} catch (SQLException e) {
 

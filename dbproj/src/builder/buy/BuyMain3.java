@@ -37,7 +37,7 @@ public class BuyMain3 {
 		
 		//LocalDate 타입을 java.sql.Date 으로 vo2 타입으로 변경합니다.
 		Date d_date = Date.valueOf(delivery);      //날짜를 현재날짜 + 3일로 합니다.
-		
+
 		//2)
 		System.out.print("배송희망날짜 입력(yyyy-mm-dd) >>>");
 		d_date = Date.valueOf(sc.nextLine());

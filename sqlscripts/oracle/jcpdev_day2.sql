@@ -1,7 +1,7 @@
 -- 쇼핑몰 : 고객이 상품을 구매한다.
 -- 고객(custom) 테이블 생성 : 필드(컬럼) 구성은 이름과 데이터형식 중요.
 CREATE TABLE custom (    
-	-- 고객 아이디(문자열,var:가변적인 char:문자2 바차2,문자인코딩 utf-8)
+	-- 고객 아이디(문자열,var:가변적인 char:문자 , 바차2,문자인코딩 utf-8)
 	-- 고객 이름(문자열)
 	-- 이메일(문자열)
 	-- 나이(정수,number) 3자리 *number : int,long,float,doble
@@ -36,7 +36,7 @@ CREATE TABLE buy(
 INSERT INTO JCPDEV.CUSTOM (CUSTOME_ID,NAME,EMAIL,AGE,REG_DATE)
 VALUES ('mina2012','김미나','kim@gmail.com',20,'2020-05-23');
 
--- 스키마이름 같으면 생략가능
+-- 스키마이름 같으면 생략가능 , 모든 컬럼이 null 허용하므로 아래 insert 가능합니다.
 INSERT INTO custom(custome_id) VALUES ('dayeon11');
 INSERT INTO custom(reg_date) VALUES ('2021-08-10');
 INSERT INTO custom(reg_date) VALUES (sysdate);   -- 현재 날짜 : sysdate

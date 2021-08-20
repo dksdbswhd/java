@@ -116,5 +116,15 @@ SELECT m.idx, STUNAME ,nvl(카운트,0) FROM "MEMBER" m ,
 WHERE m.idx = r_cnt.idx(+)
 ORDER BY idx;
 
+-- fk 제약조건 설정 : bookrent 테이블 -> idx,bcode
+
+ALTER TABLE BOOKRENT ADD CONSTRAINT rent_idx_fk FOREIGN KEY (idx)
+					REFERENCES member(idx);
+
+ALTER TABLE BOOKRENT ADD CONSTRAINT rent_bcode_fk FOREIGN key(bcode)
+					REFERENCES book(bcode);
+
+
+
 
 
